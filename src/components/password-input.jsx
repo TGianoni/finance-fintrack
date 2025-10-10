@@ -11,7 +11,7 @@ const PasswordInput = forwardRef(
       <div className="relative">
         <Input
           type={passwordIsVisible ? 'text' : 'password'}
-          placeHolder={placeholder}
+          placeholder={placeholder}
           ref={ref}
           {...props}
         />

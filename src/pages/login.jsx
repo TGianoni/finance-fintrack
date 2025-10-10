@@ -67,7 +67,7 @@ const LoginPage = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeHolder="Digite seu e-mail" {...field} />
+                      <Input placeholder="Digite seu e-mail" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
