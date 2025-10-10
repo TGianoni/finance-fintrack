@@ -100,7 +100,7 @@ const LoginPage = () => {
   }
 
   if (user) {
-    return <h1>Olá, {user.email}</h1>
+    return <h1>Olá, {user.first_name}</h1>
   }
 
   return (
