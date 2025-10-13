@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
 
-export const DatePickerDemo = ({
+export const DatePickerWithRange = ({
   value,
   onChange,
   placeholder = 'Selecione uma data',
