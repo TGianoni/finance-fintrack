@@ -38,6 +38,7 @@ export const AuthContextProvider = ({ children }) => {
       return response
     },
   })
+  console.log({ user })
   const loginPageMutation = useMutation({
     mutationKey: ['login'],
     mutationFn: async (variables) => {
