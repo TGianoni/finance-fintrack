@@ -1,14 +1,19 @@
+import { useQueryClient } from '@tanstack/react-query'
 import { addMonths, format } from 'date-fns'
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
+
+import { useAuthContext } from '@/contexts/auth'
 
 import { DatePickerWithRange } from './ui/date-picker-with-range'
 
 const formatDateToQueryParam = (date) => format(date, 'yyyy-MM-dd')
 
 const DateSelection = () => {
+  const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
+  const { user } = useAuthContext()
   const [date, setDate] = useState({
     from: searchParams.get('from')
       ? new Date(searchParams.get('from') + 'T00:00:00')
@@ -26,7 +31,10 @@ const DateSelection = () => {
     if (date.from && date.to) {
       navigate(`/?${queryParams.toString()}`)
     }
-  }, [navigate, date])
+    queryClient.invalidateQueries({
+      queryKey: ['balance', user.id],
+    })
+  }, [navigate, date, queryClient, user.id])
   // 2.quando eu recarregar a pagina, eu pego o from e o to e persisto no state
   return <DatePickerWithRange value={date} onChange={setDate} />
 }
