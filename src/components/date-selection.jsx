@@ -24,8 +24,8 @@ const getInitialDateState = (searchParams) => {
     return defaultDate
   }
   return {
-    from: new Date(from + +'T00:00:00'),
-    to: new Date(to + +'T00:00:00'),
+    from: new Date(from + 'T00:00:00'),
+    to: new Date(to + 'T00:00:00'),
   }
 }
 
