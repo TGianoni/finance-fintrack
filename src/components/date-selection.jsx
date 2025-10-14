@@ -32,7 +32,12 @@ const DateSelection = () => {
       navigate(`/?${queryParams.toString()}`)
     }
     queryClient.invalidateQueries({
-      queryKey: ['balance', user.id],
+      queryKey: [
+        'balance',
+        user.id,
+        formatDateToQueryParam(date.from),
+        formatDateToQueryParam(date.to),
+      ],
     })
   }, [navigate, date, queryClient, user.id])
   // 2.quando eu recarregar a pagina, eu pego o from e o to e persisto no state
