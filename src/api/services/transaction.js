@@ -24,6 +24,6 @@ export const TransactionService = {
   getAll: async (input) => {
     const query = queryString.stringify({ from: input.from, to: input.to })
     const response = await protectedApi.get(`/transactions/me?${query}`)
-    return response
+    return response.data
   },
 }
