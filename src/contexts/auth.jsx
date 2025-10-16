@@ -69,19 +69,15 @@ export const AuthContextProvider = ({ children }) => {
       },
     })
   }
-  const login = (data) => {
-    loginPageMutation.mutate(data, {
-      onSuccess: (loginUser) => {
-        setUser(loginUser)
-        setTokens(loginUser.tokens)
-        toast.success(`Bem-vindo de volta, ${loginUser.firstName}!`)
-      },
-      onError: () => {
-        toast.error(
-          'Erro ao fazer login. Por favor, tente novamente mais tarde'
-        )
-      },
-    })
+  const login = async (data) => {
+    try {
+      const loginUser = await loginPageMutation.mutateAsync(data)
+      setUser(loginUser)
+      setTokens(loginUser.tokens)
+      toast.success(`Bem-vindo de volta, ${loginUser.firstName}!`)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const signOut = () => {
