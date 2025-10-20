@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 
 import {
   useCreateTransaction,
+  useDeleteTransaction,
   useEditTransaction,
 } from '@/api/hooks/transaction'
 
@@ -64,4 +65,19 @@ export const useEditTransactionForm = ({ transaction, onSuccess, onError }) => {
     }
   }
   return { form, onSubmit }
+}
+
+export const useDeleteTransactionForm = ({ onSuccess, onError }) => {
+  const { mutateAsync: deleteTransaction } = useDeleteTransaction()
+
+  const onSubmit = async (data) => {
+    try {
+      await deleteTransaction(data)
+      onSuccess()
+    } catch (error) {
+      console.error(error)
+      onError()
+    }
+  }
+  return onSubmit
 }

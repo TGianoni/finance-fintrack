@@ -49,4 +49,10 @@ export const TransactionService = {
     })
     return response.data
   },
+  delete: async (transaction) => {
+    const response = await protectedApi.delete(
+      `/transactions/me/${transaction.id}`
+    )
+    return response.data
+  },
 }
