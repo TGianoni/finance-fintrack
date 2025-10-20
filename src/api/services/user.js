@@ -75,4 +75,17 @@ export const UserService = {
     )
     return response.data
   },
+  getBalanceGraphic: async (input) => {
+    const queryParams = new URLSearchParams()
+    queryParams.set('from', input.from)
+    queryParams.set('to', input.to)
+    const response = await protectedApi.get(
+      `/users/me/balance?${(queryParams.toString(), response.data)}`
+    )
+    return {
+      earning: response.data.earning,
+      expense: response.data.expense,
+      investment: response.data.investment,
+    }
+  },
 }

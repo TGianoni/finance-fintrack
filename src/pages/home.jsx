@@ -2,6 +2,7 @@ import { Navigate } from 'react-router'
 
 import AddTransactionButton from '@/components/add-transaction-button'
 import Balance from '@/components/balance'
+import { ChartPieDonutGraphic } from '@/components/chart-pie-donut'
 import DateSelection from '@/components/date-selection'
 import Header from '@/components/header'
 import TransactionsTable from '@/components/transactions-table'
@@ -29,8 +30,11 @@ const HomePage = () => {
         </div>
 
         {/* GRÁFICOS E ETC */}
-        <div className="grid grid-cols-[2fr,1fr]">
+        <div className="grid grid-cols-[2fr,1fr] gap-6">
           <Balance />
+          <div className="grid grid-cols-1">
+            <ChartPieDonutGraphic />
+          </div>
         </div>
         <TransactionsTable />
       </div>

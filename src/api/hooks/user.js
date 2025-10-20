@@ -22,6 +22,18 @@ export const useGetUserBalance = ({ from, to }) => {
   })
 }
 
+export const useGetUserBalanceGraphic = ({ from, to }) => {
+  const { user } = useAuthContext()
+  return useQuery({
+    queryKey: getUserBalanceQueryKey({ userId: user.id, from, to }),
+    queryFn: () => {
+      return UserService.getBalanceGraphic({ from, to })
+    },
+    staleTime: 1000 * 60 * 5,
+    enabled: Boolean(from) && Boolean(to) && Boolean(user.id),
+  })
+}
+
 export const signupMutationKey = ['signup']
 
 export const useSignup = () => {
