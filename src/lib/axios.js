@@ -5,14 +5,12 @@ import {
   LOCAL_STORAGE_REFRESH_TOKEN_KEY,
 } from '@/constants/local-storage'
 
-const RENDER_URL = 'https://fullstackclub-finance-dashboard-api.onrender.com'
-
 export const protectedApi = axios.create({
-  baseURL: RENDER_URL + '/api',
+  baseURL: '/api',
 })
 
 export const publicApi = axios.create({
-  baseURL: RENDER_URL + '/api',
+  baseURL: '/api',
 })
 
 protectedApi.interceptors.request.use((request) => {

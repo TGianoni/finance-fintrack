@@ -14,7 +14,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8000', // endereço do seu backend
+        target: 'https://finance-app-xo80.onrender.com', // endereço do seu backend
         changeOrigin: true,
         secure: false,
       },
