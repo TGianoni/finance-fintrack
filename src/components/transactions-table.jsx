@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router'
 
 import { useGetTransactions } from '@/api/hooks/transaction'
 import { formatCurrency } from '@/helpers/currency'
+import { getTransactionDate } from '@/helpers/date'
 
 import { DeleteTransactionButton } from './delete-transaction-button'
 import EditTransactionButton from './edit-transaction-button'
@@ -27,7 +28,7 @@ const columns = [
     accessorKey: 'date',
     header: 'Data',
     cell: ({ row: { original: transaction } }) => {
-      return format(new Date(transaction.date), "dd 'de' MMMM 'de' yyyy", {
+      return format(getTransactionDate(transaction), "dd 'de' MMMM 'de' yyyy", {
         locale: ptBR,
       })
     },
