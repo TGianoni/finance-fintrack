@@ -1,6 +1,7 @@
 import { ChevronDownIcon, LogOutIcon } from 'lucide-react'
 
 import logo from '@/assets/images/logo.svg'
+import logoGianoni from '@/assets/images/logo-branco.png'
 import { useAuthContext } from '@/contexts/auth'
 
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
@@ -20,8 +21,14 @@ const Header = () => {
   return (
     <Card>
       <CardContent className="flex items-center justify-between px-8 py-4">
-        <div>
+        <div className="flex gap-5">
           <img src={logo} alt="FinTrack" />
+          <img
+            src={logoGianoni}
+            alt="GianoniSeguros"
+            size="small"
+            className="flex h-[40px] w-[110px]"
+          />
         </div>
         <div>
           <DropdownMenu>
