@@ -5,12 +5,14 @@ import {
   LOCAL_STORAGE_REFRESH_TOKEN_KEY,
 } from '@/constants/local-storage'
 
+const baseURL = import.meta.env.VITE_API_URL || '/api'
+
 export const protectedApi = axios.create({
-  baseURL: '/api',
+  baseURL: baseURL,
 })
 
 export const publicApi = axios.create({
-  baseURL: '/api',
+  baseURL: baseURL,
 })
 
 protectedApi.interceptors.request.use((request) => {

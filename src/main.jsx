@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/fintrack">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
